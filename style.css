@@ -2,21 +2,19 @@ body {
     height: 100vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0;
 }
 
-.container {
+.grid {
     /* note that the setting needs to change based on the size of the window
         the set size should be the smaller dimension
         this allows the grid to be displayed on a single screen without scrolling */
     width: 100vw;
     margin: 0;
     aspect-ratio: 1 / 1;
-}
-
-.container {
     display: flex;
     flex-direction: column;
     align-items: stretch;
