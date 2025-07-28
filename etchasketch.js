@@ -4,13 +4,7 @@ const container = document.querySelector(".container");
 
 let [grid, rows, squares] = createGrid(INITALGRIDDIM);
 
-window.addEventListener('resize', 
-    () => {
-        console.log("resize");
-        console.log(`height: ${window.innerHeight}, width: ${window.innerWidth}`)
-        setGridSize(grid);
-    }
-);
+window.addEventListener('resize', () => setGridSize(grid));
 
 const newGridButton = document.querySelector("button");
 newGridButton.addEventListener('click', 
@@ -37,7 +31,17 @@ function createGrid (gridDim) {
             squares[i].push(document.createElement("div"));
             squares[i][j].className = "square";
             squares[i][j].addEventListener('mouseenter', 
-                (event) => event.target.style.backgroundColor = generateRandomColorString());
+                (event) => {
+                    if (event.target.classList.contains("colored")) {
+                        if (event.target.style.opacity < 1) {
+                            event.target.style.opacity = +event.target.style.opacity + 0.1;
+                        }
+                    } else {
+                        event.target.classList.add("colored");
+                        event.target.style.opacity = 0.1;
+                        event.target.style.backgroundColor = generateRandomColorString();
+                    }
+                });
         }
         rows[i].append(...squares[i]);
     }
