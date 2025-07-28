@@ -13,10 +13,6 @@ body {
 }
 
 .grid {
-    /* note that the setting needs to change based on the size of the window
-        the set size should be the smaller dimension
-        this allows the grid to be displayed on a single screen without scrolling */
-    width: 95vw;
     margin: 0;
     aspect-ratio: 1 / 1;
     display: flex;

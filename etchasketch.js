@@ -1,12 +1,16 @@
 const INITALGRIDDIM = 16;
 
-// const body = document.querySelector("body");
 const container = document.querySelector(".container");
-// TODO: 
-// set min of height or width to be static container dimension 
-// so grid displays completely on screen
 
 let [grid, rows, squares] = createGrid(INITALGRIDDIM);
+
+window.addEventListener('resize', 
+    () => {
+        console.log("resize");
+        console.log(`height: ${window.innerHeight}, width: ${window.innerWidth}`)
+        setGridSize(grid);
+    }
+);
 
 const newGridButton = document.querySelector("button");
 newGridButton.addEventListener('click', 
@@ -38,5 +42,16 @@ function createGrid (gridDim) {
         rows[i].append(...squares[i]);
     }
     grid.append(...rows);
+    setGridSize(grid);
     return [grid, rows, squares];
+}
+
+function setGridSize (grid) {
+    if (window.innerHeight > window.innerWidth) {
+        grid.style.width = "95vw";
+        grid.style.height = "auto";
+    } else {
+        grid.style.width = "auto";
+        grid.style.height = "95vh";
+    }
 }
