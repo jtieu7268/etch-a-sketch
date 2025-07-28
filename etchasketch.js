@@ -15,6 +15,8 @@ for (let i = 0; i < INITALGRIDDIM; i++) {
     for (let j = 0; j < INITALGRIDDIM; j++) {
         squares[i].push(document.createElement("div"));
         squares[i][j].className = "square";
+        squares[i][j].addEventListener('mouseenter', 
+            (event) => event.target.classList.add("colored"));
     }
     rows[i].append(...squares[i]);
 }
