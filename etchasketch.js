@@ -1,4 +1,4 @@
-const INITALGRIDDIM = 4;
+const INITALGRIDDIM = 16;
 
 // const body = document.querySelector("body");
 const container = document.querySelector(".container");

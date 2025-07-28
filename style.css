@@ -30,6 +30,4 @@ body {
 .square {
     display: flex;
     flex: 1 1 auto;
-    background-color: blue;
-    border: white solid 2px;
 }
