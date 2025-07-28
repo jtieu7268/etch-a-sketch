@@ -37,7 +37,7 @@ function createGrid (gridDim) {
             squares[i].push(document.createElement("div"));
             squares[i][j].className = "square";
             squares[i][j].addEventListener('mouseenter', 
-                (event) => event.target.classList.add("colored"));
+                (event) => event.target.style.backgroundColor = generateRandomColorString());
         }
         rows[i].append(...squares[i]);
     }
@@ -54,4 +54,9 @@ function setGridSize (grid) {
         grid.style.width = "auto";
         grid.style.height = "95vh";
     }
+}
+
+function generateRandomColorString () {
+    // RGB format string: rbg(R G B)
+    return `rgb(${Math.floor(Math.random() * 256)} ${Math.floor(Math.random() * 256)} ${Math.floor(Math.random() * 256)})`;
 }
